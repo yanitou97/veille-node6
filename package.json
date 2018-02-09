@@ -12,5 +12,11 @@
     "mongodb"
   ],
   "author": "Yan Nelson-Lapointe",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  }
 }
