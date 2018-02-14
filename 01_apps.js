@@ -16,7 +16,7 @@ let db // variable qui contiendra le lien sur la BD
 
 MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) => {
  if (err) return console.log(err)
- db = database
+ db = database.db('carnet_adresse');
 
 app.listen(8081, () => {
  console.log('connexion à la BD et on écoute sur le port 8081')
