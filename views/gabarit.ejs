@@ -6,14 +6,28 @@
  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<form action = "http://127.0.0.1:8081/ajouter" method = "POST">
+ Nom: <input type = "text" name = "nom"> <br>
+ Téléphone: <input type = "text" name = "telephone"> <br>
+ <input type = "submit" value = "Submit">
  <table class="tableau">
- <% for(elm of adresses) {%>
- <tr>
- <td><%= elm.id %></td>
- <td><%= elm.nom %></td>
- <td><%= elm.telephone %></td>
- </tr>
- <% } %>
+ <% let noLigne = 0	%>
+ 		<% for(elm of adresses) {%>
+ 			<% if (noLigne == 0) { %>
+ 				<tr>
+ 				<% noLigne++ %>
+ 				<% for(p in elm) {%>
+ 					<td><%= p %></td>
+ 				<% } %>
+ 				</tr>
+ 			<% } %>
+ 			<tr>
+ 			<% for(p in elm) {%>
+ 				<td><%= elm[p] %></td>
+ 			<% } %>
+ 			</tr>
+		<% } %>
+
  </table>
 </body>
 </html>
