@@ -17,11 +17,19 @@ td:nth-child(2), td:nth-child(4), td:nth-child(6){
     background-color: #EEEEEE; 
 }
 
-header, form,  footer{
+header, form, h1, p, footer{
     margin: 0 auto;
     text-align: center;
 }
 
 li{
     list-style-type: none;
+}
+
+nav{
+    margin: 20px auto;
+}
+
+nav a{
+    font-size: 2em;
 }
