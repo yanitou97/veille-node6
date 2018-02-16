@@ -1,9 +1,13 @@
 table{
 	margin: 50px auto;
-    border: 2px black solid;
+    border: 10px black solid;
     border-collapse: collapse;
 }
 
 td, th{
     border: 2px grey solid;
+    padding: 30px;
 }
+
+
+
