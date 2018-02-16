@@ -1,5 +1,8 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
 table{
-	margin: 50px auto;
+	margin: 40px auto;
     border: 10px black solid;
     border-collapse: collapse;
 }
@@ -32,4 +35,8 @@ nav{
 
 nav a{
     font-size: 2em; 
+}
+
+h1, p{
+    margin: 20px auto;
 }
