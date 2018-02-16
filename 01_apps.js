@@ -71,12 +71,14 @@ app.post('/modifier', (req, res) => {
     })
  })
 
-app.get('/trier/:id/:cle', (req, res) => {
+app.get('/trier/:cle/:ordre', (req, res) => {
     let cle = req.params.cle
-    console.log
+    console.log('trier')
     let ordre = (req.params.ordre == 'asc' ? 1 : -1)
+    
     let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
-        ordre = ______________________________
-        res.render('adresses.ejs', {adresses: resultat, cursor, ordre })
+        ordre = (req.params.ordre == 'asc' ? 'desc' : 'asc')
+        console.log(ordre)
+        res.render('adresses.ejs', {adresses: resultat, cle, ordre })
     })
 })
