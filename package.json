@@ -1,7 +1,7 @@
 {
-  "name": "veille-node5",
+  "name": "veille-node6",
   "version": "1.0.0",
-  "description": "Exercice #5",
+  "description": "Exercice #6",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
