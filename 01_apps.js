@@ -26,15 +26,20 @@ app.listen(8081, () => {
 })
 
 app.get('/', (req, res) => {
+ 	res.render('accueil.ejs') 
+
+ })
+app.get('/list', (req, res) => {
     let cursor = db.collection('adresse')
                 .find().toArray(function(err, resultat){
  	if (err) return console.log(err)	
  	console.log(JSON.stringify(resultat))	
  	// transfert du contenu vers la vue index.ejs (renders)
  	// affiche le contenu de la BD
- 	res.render('gabarit.ejs', {adresses: resultat}) 
+ 	res.render('adresses.ejs', {adresses: resultat}) 
 
- }) 
+ })    
+    
 app.post('/ajouter', (req, res) => {
  		db.collection('adresse').save(req.body, (err, result) => {
  		if (err) return console.log(err)
