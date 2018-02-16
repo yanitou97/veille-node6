@@ -4,6 +4,7 @@ const fs = require('fs');
 
 const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient // le pilote 
+const ObjectID = require('mongodb').ObjectID // le pilote 
 
 app.set('view engine', 'ejs'); // générateur de template 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
  	res.render('accueil.ejs') 
 
  })
+
 app.get('/list', (req, res) => {
     let cursor = db.collection('adresse')
                 .find().toArray(function(err, resultat){
@@ -39,15 +41,16 @@ app.get('/list', (req, res) => {
  	res.render('adresses.ejs', {adresses: resultat}) 
 
  })    
-    
-app.post('/ajouter', (req, res) => {
- 		db.collection('adresse').save(req.body, (err, result) => {
- 		if (err) return console.log(err)
- 			console.log('sauvegarder dans la BD')
- 			res.redirect('/list')
- 		})
-	})                                
 })
 
+app.get('/delete/:id', (req, res) => {
+    var id = req.params.id
+    console.log(id)
+    db.collection('adresse')
+        .findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
 
+        if (err) return console.log(err)
+            res.redirect('/list')  // redirige vers la route qui affiche la collection
+        })
+})
 
